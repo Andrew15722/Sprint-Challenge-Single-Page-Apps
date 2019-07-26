@@ -29,9 +29,9 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 - [ ] What does AJAX stand for?
 > Answer: Asynchronous Javascript and XML.    
 - [ ] What are `controlled components` in React?
-> Answer:
+> Answer: They are components that you control the state of. That are synchronized to react's state.
 - [ ] Name three tools/libraries for making AJAX requests.
-> Answer:
+> Answer: Fetch Api, Axios, Superagent.
 
 
 ## Project Set Up
