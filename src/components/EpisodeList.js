@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import EpisodeCard from './EpisodeCard';
 
+import { Loader } from 'semantic-ui-react';
+
 export default function EpisodeList() {
 	const [ episodes, setEpisodes ] = useState([]);
+	const [ isLoading, setIsLoading ] = useState(true);
 
 	useEffect(() => {
 		// TODO: Add AJAX/API Request here - must run in `useEffect`
@@ -11,10 +14,13 @@ export default function EpisodeList() {
 		axios.get(`https://rickandmortyapi.com/api/episode/`).then((res) => {
 			console.log(res.data.results);
 			setEpisodes(res.data.results);
+			setIsLoading(false);
 		});
 	}, []);
 
-	return (
+	return isLoading ? (
+		<Loader active inline="centered" />
+	) : (
 		<section className="character-list grid-view">
 			{episodes.map((episode) => {
 				return <EpisodeCard {...episode} />;
